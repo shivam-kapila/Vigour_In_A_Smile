@@ -1,0 +1,42 @@
+<button id="bro">Login using Google</button>
+<button id="bro2">Login using GitHub</button>
+<button id="bro3">Logout</button>
+<h1 id = "abc"></h1>
+<script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAyr2d2WnEd9omoR-qhK7i_AjfY8Q3-YHc",
+        authDomain: "vigour-in-a-smile.firebaseapp.com",
+        databaseURL: "https://vigour-in-a-smile.firebaseio.com",
+        projectId: "vigour-in-a-smile",
+        storageBucket: "",
+        messagingSenderId: "1018738069328"
+    };
+    firebase.initializeApp(config);
+    function newLoginHappened(user) {
+        if (user)
+            console.log(user);
+        else {
+            var provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithRedirect(provider);
+        }
+    }
+    
+    function login() {
+        event.preventDefault();
+        console.log("Le bhai! Chl pda.")
+        firebase.auth().onAuthStateChanged(newLoginHappened);
+    }
+
+    function logout() {
+        event.preventDefault();
+        firebase.auth().signOut();
+
+    }
+
+    // document.getElementById("bro").onclick = login;
+    document.getElementById("bro").addEventListener('click', login);
+    document.getElementById("bro3").addEventListener('click', logout);
+</script>

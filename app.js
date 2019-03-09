@@ -105,6 +105,13 @@ app.delete("/blogs/:id", function(req, res){
     });
 });
 
+// LOGIN ROUTE 
+
+app.get("/login",function(req, res){
+    res.render("login");
+}
+);
+
 app.listen(process.env.PORT || 3000, process.env.IP, function () {
     console.log("SERVER IS RUNNING!");
 });
