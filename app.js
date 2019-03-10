@@ -78,6 +78,7 @@ app.get("/blogs/:id", function(req, res) {
         if(err){
             res.redirect("/blogs");
         } else {
+            // console.log(user);
             res.render("show", {blog: foundBlog});  
         }
     }); 
