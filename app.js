@@ -153,7 +153,7 @@ app.post("/blogs/comment/:id", function (req, res) {
             req.body.comment.name = "Shivam";
             blog.comments.push(req.body.comment);
             blog.save();
-            res.redirect("/blogs");
+            res.redirect("/blogs/"+req.params.id);
         }
     });
 });

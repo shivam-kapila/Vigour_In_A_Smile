@@ -1,15 +1,50 @@
-i.icon {
-    font-size: 2em; 
+* {
+	margin: 0rem;
+	padding: 0rem;
+	box-sizing: border-box;
 }
 
-.container.main {
-    margin-top: 7em;
+body {
+	background-color: #123456;
+	background-image: linear-gradient(to bottom right, #d8e42d, black);
 }
 
 #delete {
  display: inline;   
 }
 
-.segment {
-    margin-right: 10%;
+.nav_menu {
+	background-color: black;
+	padding: 0px 0px 30px 0px;
+	/*background-image: linear-gradient(to bottom, white, black);*/ 
+}	
+
+.fas {
+	color: white;
+	font-size: 3rem;
+	display: inline;
+	position: relative;
+	top: 2rem;
+	left: 4rem;
+}
+
+.nav_menu li {
+	display: inline;
+	color: white;
+	margin: 30px 20px;
+	font-family: 'Righteous', cursive;
+	font-size: 20px;
+}
+
+li:first-child {
+	margin-left: 120px;
+}
+
+li:last-child {
+	margin-left: 65rem; 
+}
+
+.nav_menu li:hover {
+	opacity: 0.7;
+	cursor: pointer;
 }
