@@ -1,6 +1,8 @@
 <button id="bro">Login using Google</button>
-<button id="bro2">Login using GitHub</button>
+<button id="bro2">Login using Facebook</button>
 <button id="bro3">Logout</button>
+<input type="email" id = "email">
+<input type="password" id = "password">
 <h1 id = "abc"></h1>
 <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
 
@@ -20,23 +22,44 @@
             console.log(user);
         else {
             var provider = new firebase.auth.GoogleAuthProvider();
-            firebase.auth().signInWithRedirect(provider);
+            firebase.auth().signInWithPopup(provider);
         }
     }
     
+    function newLoginHappenedFB(user) {
+            if (user)
+                console.log(user);
+            else {
+                var provider = new firebase.auth.FacebookAuthProvider();
+                firebase.auth().signInWithPopup(provider).then(function(result){
+                    var token = result.credential.accessToken;
+                    var user = result.user;
+                  
+                });
+            }
+        }
+    
     function login() {
-        event.preventDefault();
+        // event.preventDefault();
         console.log("Le bhai! Chl pda.")
         firebase.auth().onAuthStateChanged(newLoginHappened);
     }
-
+    function loginFB() {
+        // event.preventDefault();
+        console.log("Le bhai! Chl pda.")
+        firebase.auth().onAuthStateChanged(newLoginHappenedFB);
+    }
+   
     function logout() {
-        event.preventDefault();
-        firebase.auth().signOut();
-
+        // event.preventDefault();
+        user = "";
+        token = "";
+        result = "";
+                firebase.auth().signOut();
+                console.log(user);
     }
 
-    // document.getElementById("bro").onclick = login;
     document.getElementById("bro").addEventListener('click', login);
+    document.getElementById("bro2").addEventListener('click', loginFB);
     document.getElementById("bro3").addEventListener('click', logout);
 </script>
