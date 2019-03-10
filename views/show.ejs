@@ -8,6 +8,9 @@
          <div class="content">
             <span><%= blog.created.toDateString(); %></span>
          </div>
+        <div class="content">
+            Created By: <span><%= blog.name %></span>
+        </div>
          <div class="description">
              <p><%- blog.body%></p>
          </div>
@@ -15,7 +18,34 @@
          <form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
             <button class="ui red basic button">Delete</button> 
          </form>
+         <form id="delete" action="/blogs/like/<%= blog._id %>" method="POST">
+            <button class="ui red basic button">Like</button> 
+         </form>
+        <form id="delete" action="/blogs/comment/<%= blog._id %>" method="POST">
+            <input type="text" name="comment[comment]">
+            <button class="ui red basic button">Comment</button>
+        </form>
+        
      </div>
+     <% if(blog.comments.length > 0){ %>
+    <div class="ui main text container dis">
+            <div class="ui divided items segment">
+        <% for(var i = 0; i < blog.comments.length; i++){ %>
+            <div class = "item">
+                <div class = "content">
+                    <strong>
+                        <%= blog.comments[i].name; %>
+                    </strong>
+                 </div>
+                <div class="meta">
+                   <%= blog.comments[i].comment; %>
+                </div>
+            </div>
+            <%}%>
+         </div>
+
+    </div>
+    <% } %>
 </div>
 <% include ./partials/footer%>
 

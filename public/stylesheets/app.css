@@ -9,3 +9,7 @@ i.icon {
 #delete {
  display: inline;   
 }
+
+.segment {
+    margin-right: 10%;
+}

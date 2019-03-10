@@ -3,6 +3,7 @@
 <button id="bro3">Logout</button>
 <input type="email" id = "email">
 <input type="password" id = "password">
+<button id="bro4">Login</button>
 <h1 id = "abc"></h1>
 <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
 
@@ -59,7 +60,25 @@
                 console.log(user);
     }
 
+    function loginNormal(){
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+                firebase.auth().onAuthStateChanged(function(user){
+                    if(user) {
+                        console.log(user);
+                    }
+                    else {
+                        // firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
+                            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+                               console.log(error); 
+                        })
+                    } 
+                });
+
+    }
+
     document.getElementById("bro").addEventListener('click', login);
     document.getElementById("bro2").addEventListener('click', loginFB);
+    document.getElementById("bro4").addEventListener('click', loginNormal);
     document.getElementById("bro3").addEventListener('click', logout);
 </script>
