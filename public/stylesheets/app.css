@@ -4,13 +4,6 @@
 	box-sizing: border-box !important;
 }
 
-
-
-body {
-	/* background-color: #123456; */
-	/* background-image: linear-gradient(to bottom right, #d8e42d, black); */
-}
-
 #delete {
     display: inline;   
 }
@@ -71,4 +64,14 @@ li:first-child {
 .content-date{
     font-weight: 300;
     margin: 1rem 0 !important;
+}
+
+.login_page {
+	background-color: red;
+	height: auto;
+	width: 90px;
+}
+
+.login_page button {
+	display: block;
 }
